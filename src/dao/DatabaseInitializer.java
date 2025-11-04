@@ -38,10 +38,30 @@ public class DatabaseInitializer {
                                     "email TEXT," +
                                     "endereco TEXT" +
                                     ");";
+                
+                // SQL para criar a tabela de Consultas
+                String sqlConsultas = "CREATE TABLE IF NOT EXISTS consultas (" +
+                                      "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                      "idPaciente INTEGER NOT NULL," +
+                                      "idMedico INTEGER NOT NULL," +
+                                      "dataConsulta TEXT NOT NULL," +
+                                      "horaConsulta TEXT NOT NULL," +
+                                      "observacoes TEXT," +
+                                      "FOREIGN KEY(idPaciente) REFERENCES pacientes(id)," +
+                                      "FOREIGN KEY(idMedico) REFERENCES medicos(id)" +
+                                      ");";
+                
+                // SQL para criar a tabela de Especialidades
+                String sqlEspecialidades = "CREATE TABLE IF NOT EXISTS especialidades (" +
+                                           "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                           "nome TEXT UNIQUE NOT NULL" +
+                                           ");";
 
                 // Executa as instruções SQL
                 stmt.execute(sqlPacientes);
                 stmt.execute(sqlMedicos);
+                stmt.execute(sqlConsultas);
+                stmt.execute(sqlEspecialidades);
                 
                 System.out.println("Tabelas criadas ou já existentes.");
             }

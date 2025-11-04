@@ -7,7 +7,7 @@ public class Medico {
     private int id;
     private String nome;
     private String crm;
-    private String especialidade;
+    private String especialidade; // <-- adicionado para compatibilidade
     private String telefone;
     private String email;
     private String endereco;
@@ -17,8 +17,8 @@ public class Medico {
     }
     
     // Construtor completo
-    public Medico(int id, String nome, String crm, String especialidade, 
-                 String telefone, String email, String endereco) {
+    public Medico(int id, String nome, String crm, String especialidade,
+                  String telefone, String email, String endereco) {
         this.id = id;
         this.nome = nome;
         this.crm = crm;

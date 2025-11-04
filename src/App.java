@@ -1,4 +1,7 @@
 import view.Pacientes;
+import view.Medicos;
+import view.Consultas;
+import view.Especialidades;
 import dao.DatabaseInitializer;
 import dao.Conexao;
 import javax.swing.*;
@@ -45,26 +48,26 @@ public class App extends JFrame {
         
         // Botão Médicos
         JButton btnMedicos = criarBotao("Gerenciar Médicos", new Color(52, 152, 219));
-        btnMedicos.addActionListener(e -> JOptionPane.showMessageDialog(this, 
-            "Tela de Médicos em desenvolvimento!", 
-            "Em breve", 
-            JOptionPane.INFORMATION_MESSAGE));
+        btnMedicos.addActionListener(e -> abrirTelaMedicos());
         gbc.gridy = 1;
         painelCentral.add(btnMedicos, gbc);
         
         // Botão Consultas
         JButton btnConsultas = criarBotao("Gerenciar Consultas", new Color(155, 89, 182));
-        btnConsultas.addActionListener(e -> JOptionPane.showMessageDialog(this, 
-            "Tela de Consultas em desenvolvimento!", 
-            "Em breve", 
-            JOptionPane.INFORMATION_MESSAGE));
+        btnConsultas.addActionListener(e -> abrirTelaConsultas());
         gbc.gridy = 2;
         painelCentral.add(btnConsultas, gbc);
+        
+        // Botão Especialidades
+        JButton btnEspecialidades = criarBotao("Gerenciar Especialidades", new Color(241, 196, 15));
+        btnEspecialidades.addActionListener(e -> abrirTelaEspecialidades());
+        gbc.gridy = 3;
+        painelCentral.add(btnEspecialidades, gbc);
         
         // Botão Testar Conexão
         JButton btnTestarConexao = criarBotao("Testar Conexão BD", new Color(230, 126, 34));
         btnTestarConexao.addActionListener(e -> Conexao.testarConexao());
-        gbc.gridy = 3;
+        gbc.gridy = 4;
         gbc.gridwidth = 1;
         painelCentral.add(btnTestarConexao, gbc);
         
@@ -111,6 +114,21 @@ public class App extends JFrame {
     private void abrirTelaPacientes() {
         Pacientes telaPacientes = new Pacientes();
         telaPacientes.setVisible(true);
+    }
+    
+    private void abrirTelaMedicos() {
+        Medicos telaMedicos = new Medicos();
+        telaMedicos.setVisible(true);
+    }
+    
+    private void abrirTelaConsultas() {
+        Consultas telaConsultas = new Consultas();
+        telaConsultas.setVisible(true);
+    }
+    
+    private void abrirTelaEspecialidades() {
+        Especialidades telaEspecialidades = new Especialidades();
+        telaEspecialidades.setVisible(true);
     }
     
     public static void main(String[] args) {
