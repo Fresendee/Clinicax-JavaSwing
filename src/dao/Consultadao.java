@@ -5,12 +5,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-/**
- * Classe DAO para operações com Consultas no banco de dados
- */
+
 public class Consultadao {
     
-    // Inserir nova consulta
+    
     public boolean inserir(Consulta consulta) {
         Connection conn = Conexao.conectar();
         String sql = "INSERT INTO consultas (idPaciente, idMedico, dataConsulta, horaConsulta, observacoes) VALUES (?, ?, ?, ?, ?)";
@@ -38,7 +36,7 @@ public class Consultadao {
         }
     }
     
-    // Atualizar consulta existente
+  
     public boolean atualizar(Consulta consulta) {
         Connection conn = Conexao.conectar();
         String sql = "UPDATE consultas SET idPaciente=?, idMedico=?, dataConsulta=?, horaConsulta=?, observacoes=? WHERE id=?";
@@ -67,7 +65,7 @@ public class Consultadao {
         }
     }
     
-    // Excluir consulta
+    
     public boolean excluir(int id) {
         Connection conn = Conexao.conectar();
         String sql = "DELETE FROM consultas WHERE id=?";
@@ -91,7 +89,7 @@ public class Consultadao {
         }
     }
     
-    // Listar todas as consultas
+   
     public ArrayList<Consulta> listar() {
         ArrayList<Consulta> lista = new ArrayList<>();
         Connection conn = Conexao.conectar();
@@ -127,7 +125,7 @@ public class Consultadao {
         return lista;
     }
     
-    // Buscar consulta por ID
+    
     public Consulta buscarPorId(int id) {
         Connection conn = Conexao.conectar();
         String sql = "SELECT * FROM consultas WHERE id=?";

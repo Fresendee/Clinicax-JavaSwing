@@ -5,12 +5,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-/**
- * Classe DAO para operações com Médicos no banco de dados
- */
+
 public class Medicodao {
     
-    // Inserir novo médico
+    
     public boolean inserir(Medico medico) {
         Connection conn = Conexao.conectar();
         String sql = "INSERT INTO medicos (nome, crm, especialidade, telefone, email, endereco) VALUES (?, ?, ?, ?, ?, ?)";
@@ -39,7 +37,7 @@ public class Medicodao {
         }
     }
     
-    // Atualizar médico existente
+    
     public boolean atualizar(Medico medico) {
         Connection conn = Conexao.conectar();
         String sql = "UPDATE medicos SET nome=?, crm=?, especialidade=?, telefone=?, email=?, endereco=? WHERE id=?";
